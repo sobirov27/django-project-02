@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+
+    <html class="light" lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Desktop Post Creation Page</title>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+            rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet" />
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            "primary": "#137fec",
+                            "background-light": "#f6f7f8",
+                            "background-dark": "#101922",
+                        },
+                        fontFamily: {
+                            "display": ["Plus Jakarta Sans", "sans-serif"]
+                        },
+                        borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                    },
+                },
+            }
+        </script>
+    </head>
+
+    <body class="bg-background-light dark:bg-background-dark min-h-screen font-display transition-colors duration-200">
+        <div class="relative flex h-screen w-full overflow-hidden">
+            <!-- Side Navigation Bar -->
+            <aside
+                class="hidden lg:flex w-[280px] flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark h-full">
+                <div class="p-6">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="bg-center bg-no-repeat bg-cover rounded-full size-10 bg-primary/10 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined" style="font-size: 28px;">all_inclusive</span>
+                        </div>
+                        <h1 class="text-slate-900 dark:text-white text-xl font-bold tracking-tight">SocialApp</h1>
+                    </div>
+                </div>
+                <nav class="flex-1 px-4 flex flex-col gap-2">
+                    <a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group"
+                        href="#">
+                        <span class="material-symbols-outlined text-slate-900 dark:text-white text-[26px]">home</span>
+                        <span class="text-slate-900 dark:text-white text-lg font-medium">Home</span>
+                    </a>
+                    <a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group"
+                        href="#">
+                        <span class="material-symbols-outlined text-slate-900 dark:text-white text-[26px]">search</span>
+                        <span class="text-slate-900 dark:text-white text-lg font-medium">Explore</span>
+                    </a>
+                    <a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group"
+                        href="#">
+                        <span
+                            class="material-symbols-outlined text-slate-900 dark:text-white text-[26px]">notifications</span>
+                        <span class="text-slate-900 dark:text-white text-lg font-medium">Notifications</span>
+                    </a>
+                    <a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group"
+                        href="#">
+                        <span class="material-symbols-outlined text-slate-900 dark:text-white text-[26px]">mail</span>
+                        <span class="text-slate-900 dark:text-white text-lg font-medium">Messages</span>
+                    </a>
+                    <a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group"
+                        href="#">
+                        <span
+                            class="material-symbols-outlined text-slate-900 dark:text-white text-[26px]">bookmark</span>
+                        <span class="text-slate-900 dark:text-white text-lg font-medium">Bookmarks</span>
+                    </a>
+                    <a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group"
+                        href="#">
+                        <span class="material-symbols-outlined text-slate-900 dark:text-white text-[26px]">person</span>
+                        <span class="text-slate-900 dark:text-white text-lg font-medium">Profile</span>
+                    </a>
+                    <button
+                        class="mt-4 flex w-full cursor-pointer items-center justify-center rounded-full h-14 bg-primary text-white text-lg font-bold shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all">
+                        Post
+                    </button>
+                </nav>
+                <div class="p-4 mt-auto">
+                    <div
+                        class="flex items-center gap-3 px-3 py-3 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer transition-colors">
+                        <div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border border-slate-200 dark:border-slate-700"
+                            data-alt="Current user profile picture"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAi7utP79B23t7xW8LR8JViHgdATOkudWRUzj4fmDBsrZq6fvK37lQdnIhAkhOODdR-2H_8tBR-Lir0hb_XxrgOvtsJaCSgUx1ePla4XVmph4dSrGPiez_ioZwWq97_-D4eMHZ9gvXAM6yADnUFFfqCAw_sho0wYSUcZOgVpvC9tFE150wTaA0wgRjoZLMDOZL7J9qnJhoT45MiCwd2mPklflNp7g-2_jnyiakYuC8j8Md9yZkPcKH-pFcY7IQvy3olzqD9dw36dKs");'>
+                        </div>
+                        <div class="flex flex-col">
+                            <p class="text-slate-900 dark:text-white text-sm font-bold leading-none">Jane Doe</p>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm leading-none mt-1">@janedoe</p>
+                        </div>
+                        <span class="material-symbols-outlined ml-auto text-slate-900 dark:text-white">more_horiz</span>
+                    </div>
+                </div>
+            </aside>
+            <!-- Main Layout Area -->
+            <main class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark">
+                <div class="max-w-[680px] w-full mx-auto pt-8 pb-20 px-4 md:px-8">
+                    <!-- Breadcrumb / Back Navigation (Optional Context) -->
+                    <div class="flex items-center gap-2 mb-6 text-slate-500 dark:text-slate-400">
+                        <button class="hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full p-1 transition-colors">
+                            <span class="material-symbols-outlined text-xl">arrow_back</span>
+                        </button>
+                        <span class="text-sm font-medium">Back to Home</span>
+                    </div>
+                    
+                    <!-- Compose Post Card -->
+                    <form method = "post" action="{% url 'post-create-view' %}">
+                    {% csrf_token %}
+                    <div
+                        class="bg-white dark:bg-background-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col min-h-[400px]">
+                        <!-- Header -->
+                        <div
+                            class="flex items-center justify-between px-4 py-3 border-b border-slate-100 dark:border-slate-800">
+                            <button
+                                class="flex items-center justify-center px-4 h-9 rounded-full text-slate-900 dark:text-white font-bold text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                                Cancel
+                            </button>
+                            <h2 class="text-slate-900 dark:text-white text-base font-bold hidden sm:block">Create Post
+                            </h2>
+                            <button
+                                class="flex items-center justify-center px-6 h-9 rounded-full bg-primary text-white font-bold text-sm shadow-md shadow-primary/20 hover:bg-primary/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                                Post
+                            </button>
+                        </div>
+                        <!-- Input Area -->
+                        <div class="flex flex-1 p-4 gap-4">
+                            <div class="shrink-0">
+                                <div class="bg-center bg-no-repeat bg-cover rounded-full size-12 border border-slate-100 dark:border-slate-700"
+                                    data-alt="User profile avatar for post creation"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2CJET8dTvSwv9ia7wNXU5LQAVjjv_MdRGd3Qd-ZCyRiljPK_UNqIGn-87dO1Igp-rVJ9n2XFpXx4kM2d95TvdHiHzNgPlRdhfks6M_jPOitwNs3QVW7eT_GB2-FiKZCi0APaQWQbUbIR1l-AmU4OdhEhugg5xnmJQDVnZxlnBoLGvku1ZV_nVbHCq-dY29vzkVDJyVYKR9amffnBcuL6MbVpkxeDBKGByPS_BLwZU4I08b5ZPpN9RrwyAKmcNUpMD78ehvRdRrZY");'>
+                                </div>
+                            </div>
+                            <div class="flex flex-col flex-1 h-full">
+                                <div class="relative w-full">
+                                    <textarea 
+                                        aria-label="Post content"
+                                        class="w-full bg-transparent border-0 text-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-0 resize-y min-h-[160px] p-0 leading-relaxed"
+                                        placeholder="What's happening?"
+                                        name="post_description">
+                                    </textarea>
+                                </div>
+                                <!-- Link Preview Placeholder (Optional, showing dynamic content capability) -->
+                                <!-- <div class="mt-4 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                                <div class="h-40 bg-slate-100 dark:bg-slate-800 w-full flex items-center justify-center text-slate-400">
+                                    <span class="material-symbols-outlined text-4xl">image</span>
+                                </div>
+                            </div> -->
+                            </div>
+                        </div>
+                        <!-- Toolbar & Footer -->
+                        <div class="px-4 pb-4">
+                            <div class="pl-16 flex flex-col gap-3">
+                                <!-- Permission Settings -->
+                                <div
+                                    class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-3 mb-1">
+                                    <button
+                                        class="flex items-center gap-2 text-primary font-bold text-sm px-3 py-1.5 rounded-full hover:bg-primary/10 transition-colors -ml-3">
+                                        <span class="material-symbols-outlined text-lg">public</span>
+                                        Everyone can reply
+                                    </button>
+                                </div>
+                                <div class="flex items-center justify-between mt-1">
+                                    <!-- Media Icons -->
+                                    <div class="flex items-center gap-1 -ml-2">
+                                        <button aria-label="Add image"
+                                            class="p-2 text-primary rounded-full hover:bg-primary/10 transition-colors">
+                                            <span class="material-symbols-outlined">image</span>
+                                        </button>
+                                        <button aria-label="Add GIF"
+                                            class="p-2 text-primary rounded-full hover:bg-primary/10 transition-colors">
+                                            <span class="material-symbols-outlined">gif_box</span>
+                                        </button>
+                                        <button aria-label="Add poll"
+                                            class="p-2 text-primary rounded-full hover:bg-primary/10 transition-colors hidden sm:block">
+                                            <span class="material-symbols-outlined">poll</span>
+                                        </button>
+                                        <button aria-label="Add emoji"
+                                            class="p-2 text-primary rounded-full hover:bg-primary/10 transition-colors">
+                                            <span class="material-symbols-outlined">sentiment_satisfied</span>
+                                        </button>
+                                        <button aria-label="Schedule post"
+                                            class="p-2 text-primary rounded-full hover:bg-primary/10 transition-colors hidden sm:block">
+                                            <span class="material-symbols-outlined">calendar_month</span>
+                                        </button>
+                                        <button aria-label="Add location"
+                                            class="p-2 text-primary rounded-full hover:bg-primary/10 transition-colors">
+                                            <span class="material-symbols-outlined">location_on</span>
+                                        </button>
+                                    </div>
+                                    <!-- Progress & Add -->
+                                    <div class="flex items-center gap-4">
+                                        <!-- Character Counter Ring -->
+                                        <div class="flex items-center gap-3">
+                                            <div class="relative size-6 flex items-center justify-center">
+                                                <!-- Background circle -->
+                                                <svg class="transform -rotate-90 w-full h-full">
+                                                    <circle class="text-slate-200 dark:text-slate-700" cx="12" cy="12"
+                                                        fill="transparent" r="10" stroke="currentColor"
+                                                        stroke-width="2"></circle>
+                                                    <!-- Progress circle (approx 20% filled) -->
+                                                    <circle class="text-primary" cx="12" cy="12" fill="transparent"
+                                                        r="10" stroke="currentColor" stroke-dasharray="62.8"
+                                                        stroke-dashoffset="50" stroke-width="2"></circle>
+                                                </svg>
+                                            </div>
+                                            <div class="w-px h-6 bg-slate-300 dark:bg-slate-700"></div>
+                                            <button
+                                                class="flex items-center justify-center size-8 rounded-full border border-slate-300 dark:border-slate-600 text-primary hover:bg-primary/5 transition-colors">
+                                                <span class="material-symbols-outlined text-lg">add</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Helper Text / Footer Note -->
+                    <p class="text-center text-slate-400 dark:text-slate-500 text-xs mt-6">
+                        By posting, you agree to our Terms of Service and Privacy Policy.
+                    </p>
+                </div>
+            </main>
+            <!-- Right Sidebar (Trending/Suggestions) - Optional for desktop context -->
+            <aside
+                class="hidden xl:flex w-[350px] flex-col gap-6 pt-6 px-6 h-full border-l border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark">
+                <!-- Search -->
+                <div class="relative group">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <span
+                            class="material-symbols-outlined text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+                    </div>
+                    <input
+                        class="block w-full pl-12 pr-4 py-3 rounded-full bg-slate-100 dark:bg-slate-800 border-none text-slate-900 dark:text-white placeholder:text-slate-500 focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-black transition-all"
+                        placeholder="Search" type="text" />
+                </div>
+                <!-- Trending Card -->
+                <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 flex flex-col gap-4">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-lg">Trending for you</h3>
+                    <div
+                        class="flex flex-col gap-0.5 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 -mx-2 px-2 py-2 rounded-lg transition-colors">
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Technology · Trending</p>
+                        <p class="text-sm font-bold text-slate-900 dark:text-white">#WebDesign</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">12.5K posts</p>
+                    </div>
+                    <div
+                        class="flex flex-col gap-0.5 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 -mx-2 px-2 py-2 rounded-lg transition-colors">
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Design · Trending</p>
+                        <p class="text-sm font-bold text-slate-900 dark:text-white">#UIUX</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">8.2K posts</p>
+                    </div>
+                    <div
+                        class="flex flex-col gap-0.5 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 -mx-2 px-2 py-2 rounded-lg transition-colors">
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Startups · Trending</p>
+                        <p class="text-sm font-bold text-slate-900 dark:text-white">SaaS</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">54K posts</p>
+                    </div>
+                    <button class="text-primary text-sm font-medium text-left mt-2 hover:underline">Show more</button>
+                </div>
+            </aside>
+        </div>
+    </body>
+
+    </html>
+</body>
+
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+
+    <html class="light" lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>SocialApp - Home Feed</title>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+            rel="stylesheet" />
+        <!-- Material Symbols -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet" />
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            "primary": "#13ec5b",
+                            "background-light": "#f6f8f6",
+                            "background-dark": "#102216",
+                        },
+                        fontFamily: {
+                            "display": ["Plus Jakarta Sans", "sans-serif"]
+                        },
+                        borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                    },
+                },
+            }
+        </script>
+        <style>
+            /* Custom scrollbar for webkit */
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background-color: #cbd5e1;
+                border-radius: 20px;
+            }
+
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+                font-size: 24px;
+            }
+
+            .material-symbols-outlined.filled {
+                font-variation-settings: 'FILL' 1;
+            }
+        </style>
+    </head>
+
+    <body
+        class="bg-background-light dark:bg-background-dark text-[#111813] dark:text-white font-display overflow-x-hidden">
+        <div class="min-h-screen flex justify-center w-full">
+            <div class="flex w-full max-w-[1280px] xl:px-8">
+                <!-- LEFT SIDEBAR -->
+                <header
+                    class="hidden md:flex flex-col w-[80px] xl:w-[275px] h-screen sticky top-0 px-2 xl:px-4 py-4 justify-between border-r border-[#dbe6df] dark:border-gray-800 z-50">
+                    <div class="flex flex-col gap-6">
+                        <!-- Logo -->
+                        <div class="px-3 xl:px-4 py-2">
+                            <div
+                                class="text-primary w-10 h-10 flex items-center justify-center rounded-full hover:bg-primary/10 transition-colors cursor-pointer">
+                                <span class="material-symbols-outlined filled text-[32px]">spa</span>
+                            </div>
+                        </div>
+                        <!-- Nav Items -->
+                        <nav class="flex flex-col gap-2">
+                            <a class="flex items-center gap-4 px-3 xl:px-4 py-3 rounded-full bg-white dark:bg-white/5 shadow-sm xl:shadow-none xl:bg-transparent xl:dark:bg-transparent hover:bg-gray-100 dark:hover:bg-white/10 transition-colors group"
+                                href="#">
+                                <span
+                                    class="material-symbols-outlined filled text-[#111813] dark:text-white">home</span>
+                                <span
+                                    class="hidden xl:block text-lg font-bold text-[#111813] dark:text-white">Home</span>
+                            </a>
+                            <a class="flex items-center gap-4 px-3 xl:px-4 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors group"
+                                href="#">
+                                <span class="material-symbols-outlined text-[#111813] dark:text-white">search</span>
+                                <span
+                                    class="hidden xl:block text-lg font-medium text-[#111813] dark:text-white">Explore</span>
+                            </a>
+                            <a class="flex items-center gap-4 px-3 xl:px-4 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors group"
+                                href="#">
+                                <span
+                                    class="material-symbols-outlined text-[#111813] dark:text-white">notifications</span>
+                                <span
+                                    class="hidden xl:block text-lg font-medium text-[#111813] dark:text-white">Notifications</span>
+                            </a>
+                            <a class="flex items-center gap-4 px-3 xl:px-4 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors group"
+                                href="#">
+                                <span class="material-symbols-outlined text-[#111813] dark:text-white">mail</span>
+                                <span
+                                    class="hidden xl:block text-lg font-medium text-[#111813] dark:text-white">Messages</span>
+                            </a>
+                            <a class="flex items-center gap-4 px-3 xl:px-4 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors group"
+                                href="#">
+                                <span class="material-symbols-outlined text-[#111813] dark:text-white">person</span>
+                                <span
+                                    class="hidden xl:block text-lg font-medium text-[#111813] dark:text-white">Profile</span>
+                            </a>
+                            <a class="flex items-center gap-4 px-3 xl:px-4 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors group"
+                                href="#">
+                                <span class="material-symbols-outlined text-[#111813] dark:text-white">more_horiz</span>
+                                <span
+                                    class="hidden xl:block text-lg font-medium text-[#111813] dark:text-white">More</span>
+                            </a>
+                        </nav>
+                        <!-- CTA Button -->
+                         <a href="{% url 'create-post' %}">
+                        <button
+                            class="bg-primary text-[#111813] rounded-full p-4 xl:px-8 xl:py-3.5 font-bold text-[15px] hover:bg-[#0fd650] transition-colors shadow-[0_8px_30px_rgb(19,236,91,0.2)] xl:w-full mt-2 flex items-center justify-center">
+                            <span class="material-symbols-outlined xl:hidden">edit</span>
+                            <span class="hidden xl:block">Create Post</span>
+                        </button>
+                        </a>
+                    </div>
+                    <!-- User Profile Mini -->
+                    <div
+                        class="flex items-center gap-3 px-3 xl:px-4 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors cursor-pointer mb-2">
+                        <div class="w-10 h-10 rounded-full bg-cover bg-center shrink-0 border border-gray-200"
+                            data-alt="User profile picture of a woman"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDN49h3_l3SBc3dvrpyiT0nmTtkRwL3aiHDGi1YDXrLkSioBr48lIMt3ECR4A7Xug537dVdFV4bxtquZ3BGO5pvAK9QEDkBIuKzxnQgHYgYjcxpGiJPvif76X05AxyiXJWEEXe9ooaYkucZ49yyyuYtpoqxpKut6mVOqUKenHnFtbP0_xmcjAhMrO2VfnStixBKG-CY2VXpi1Tbv5UsWusktAvx4EjPdx5kOA5Yug7DXhm5zwwt13N2k9_RzAYid3QPKpdZre-6B9k");'>
+                        </div>
+                        <div class="hidden xl:flex flex-col flex-1 min-w-0">
+                            <p class="font-bold text-sm truncate text-[#111813] dark:text-white">Jane Doe</p>
+                            <p class="text-gray-500 text-sm truncate">@janedoe_ui</p>
+                        </div>
+                        <span class="material-symbols-outlined hidden xl:block ml-auto text-gray-400">more_horiz</span>
+                    </div>
+                </header>
+                <!-- CENTER FEED -->
+                <main
+                    class="flex-1 w-full max-w-[600px] border-r border-[#dbe6df] dark:border-gray-800 min-h-screen pb-20 md:pb-0">
+                    <!-- Sticky Header & Tabs -->
+                    <div
+                        class="sticky top-0 z-40 backdrop-blur-md bg-background-light/80 dark:bg-background-dark/80 border-b border-[#dbe6df] dark:border-gray-800">
+                        <h1 class="block md:hidden px-4 py-3 font-bold text-lg">Home</h1>
+                        <div class="flex w-full">
+                            <a class="flex flex-1 items-center justify-center hover:bg-gray-100 dark:hover:bg-white/5 transition-colors relative h-[53px]"
+                                href="#">
+                                <span class="font-bold text-[15px] text-[#111813] dark:text-white">For You</span>
+                                <div class="absolute bottom-0 w-14 h-[4px] bg-primary rounded-full"></div>
+                            </a>
+                            <a class="flex flex-1 items-center justify-center hover:bg-gray-100 dark:hover:bg-white/5 transition-colors h-[53px]"
+                                href="#">
+                                <span
+                                    class="font-medium text-[15px] text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">Following</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Composer -->
+                    <div class="hidden md:flex border-b border-[#dbe6df] dark:border-gray-800 p-4 gap-3">
+                        <div class="w-10 h-10 rounded-full bg-cover bg-center shrink-0 border border-gray-200"
+                            data-alt="User profile picture"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA7wshSRwKs0nMQ_Bf5ufDUroHh7LrNdWGdeqJAOm4_aqDHX837_yvuHL2OlhKzNHXiRrRseOanv3Rohi5hqwmzo1s7doAUqfQUrj--7ecWKI5mPVZghruPSVS_UFNcPL2DuFNIVBQ6zrOrRSjEqrpDZUYpEZOQf6EqqcJ8-SfF0sSQ29a7LVACuW1_3btKrJEeegwDq94peh0PkbxB8ZSr-v7HighhtKcj1-v6iZO9U8S9LrtlUVHR__KmJctDc4O63tK3Ql8087w");'>
+                        </div>
+                        <div class="flex flex-col flex-1 gap-3">
+                            <textarea
+                                class="w-full bg-transparent border-none focus:ring-0 text-xl placeholder-gray-400 resize-none h-12 py-2"
+                                placeholder="What is happening?!"></textarea>
+                            <!-- Attachments & Button -->
+                            <div class="flex items-center justify-between mt-2">
+                                <div class="flex gap-1 text-primary">
+                                    <button
+                                        class="p-2 hover:bg-primary/10 rounded-full transition-colors flex items-center justify-center"><span
+                                            class="material-symbols-outlined text-[20px]">image</span></button>
+                                    <button
+                                        class="p-2 hover:bg-primary/10 rounded-full transition-colors flex items-center justify-center"><span
+                                            class="material-symbols-outlined text-[20px]">gif_box</span></button>
+                                    <button
+                                        class="p-2 hover:bg-primary/10 rounded-full transition-colors flex items-center justify-center"><span
+                                            class="material-symbols-outlined text-[20px]">poll</span></button>
+                                    <button
+                                        class="p-2 hover:bg-primary/10 rounded-full transition-colors flex items-center justify-center"><span
+                                            class="material-symbols-outlined text-[20px]">sentiment_satisfied</span></button>
+                                    <button
+                                        class="p-2 hover:bg-primary/10 rounded-full transition-colors flex items-center justify-center"><span
+                                            class="material-symbols-outlined text-[20px]">schedule</span></button>
+                                </div>
+                                <button
+                                    class="bg-primary/50 text-white dark:text-[#111813] cursor-not-allowed px-5 py-2 rounded-full font-bold text-sm">Post</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- New Posts Notice -->
+                    <div
+                        class="w-full py-3 border-b border-[#dbe6df] dark:border-gray-800 flex justify-center hover:bg-gray-50 dark:hover:bg-white/5 cursor-pointer transition-colors">
+                        <span class="text-primary text-sm font-medium">Show 35 posts</span>
+                    </div>
+                    <!-- Feed List -->
+                    <div class="flex flex-col">
+                        {% for post in posts %}
+                        <!-- Post 1 (Image) -->
+                         {% if post.image %}
+                        <article
+                            class="flex flex-col border-b border-[#dbe6df] dark:border-gray-800 hover:bg-gray-50/50 dark:hover:bg-white/[0.02] transition-colors cursor-pointer px-4 py-3">
+                            <div class="flex gap-3">
+                                <!-- Avatar -->
+                                <div class="shrink-0">
+                                    <div class="w-10 h-10 rounded-full bg-cover bg-center border border-gray-200"
+                                        data-alt="Avatar of Alex Johnson"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAlvteA_aDMQ6jO3_YhdupZTMQY_z_okaEK_B09WApinUwyXL9FwnKdctCFCrVFmvWklVpY81n-dk954nHKsp2W3pyCTpLerGT_FB9_nT8C7vZZf4NXpiXyC0KBn7YwnCdktvqLikvTpK3_ets5jYujgCcA4kJiIAwqrPG7k81ddW1Vw7KALNtYAT4eAG8lMFnV7uspnWwx_m-7T6Q4yxrhuABgx7NxCdRj7ZZMr-JMXzui3bG9iejG_18HcKWJsyPjOdlj27vyfSY");'>
+                                    </div>
+                                </div>
+                                <!-- Content -->
+                                <div class="flex flex-col flex-1 gap-1">
+                                    <!-- Header -->
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-1.5 flex-wrap">
+                                            <span class="font-bold text-[#111813] dark:text-white hover:underline">Alex
+                                                Johnson</span>
+                                            <span
+                                                class="material-symbols-outlined filled text-primary text-[16px]">verified</span>
+                                            <span class="text-gray-500 text-sm">@alexj_design · 2h</span>
+                                        </div>
+                                        <button
+                                            class="text-gray-400 hover:text-primary hover:bg-primary/10 rounded-full p-1 transition-colors">
+                                            <span class="material-symbols-outlined text-[20px]">more_horiz</span>
+                                        </button>
+                                    </div>
+                                    <!-- Body Text -->
+                                    <p class="text-[#111813] dark:text-gray-200 text-[15px] leading-relaxed mb-2">
+                                        {{post.description}}
+                                    </p>
+                                    <!-- Media -->
+                                    <div
+                                        class="rounded-xl overflow-hidden border border-[#dbe6df] dark:border-gray-800 mt-1">
+                                        <img alt="Vibrant night street view of Tokyo with neon lights"
+                                            class="w-full h-auto object-cover max-h-[500px]"
+                                            data-location="Tokyo, Japan"
+                                            src={{post.image.url}} />
+                                    </div>
+                                    <!-- Interaction Bar -->
+                                    <div class="flex items-center justify-between mt-3 text-gray-500 pr-4">
+                                        <div class="flex items-center gap-1 group">
+                                            <div
+                                                class="p-2 rounded-full group-hover:bg-blue-500/10 group-hover:text-blue-500 transition-colors">
+                                                <span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+                                            </div>
+                                            <span class="text-xs group-hover:text-blue-500 transition-colors">45</span>
+                                        </div>
+                                        <div class="flex items-center gap-1 group">
+                                            <div
+                                                class="p-2 rounded-full group-hover:bg-green-500/10 group-hover:text-green-500 transition-colors">
+                                                <span class="material-symbols-outlined text-[18px]">repeat</span>
+                                            </div>
+                                            <span class="text-xs group-hover:text-green-500 transition-colors">12</span>
+                                        </div>
+                                        <div class="flex items-center gap-1 group">
+                                            <div
+                                                class="p-2 rounded-full group-hover:bg-pink-500/10 group-hover:text-pink-500 transition-colors">
+                                                <span class="material-symbols-outlined text-[18px]">favorite</span>
+                                            </div>
+                                            <span
+                                                class="text-xs group-hover:text-pink-500 transition-colors">1.2k</span>
+                                        </div>
+                                        <div class="flex items-center gap-1 group">
+                                            <div
+                                                class="p-2 rounded-full group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                                                <span class="material-symbols-outlined text-[18px]">visibility</span>
+                                            </div>
+                                            <span class="text-xs group-hover:text-primary transition-colors">15k</span>
+                                        </div>
+                                        <div class="flex items-center group">
+                                            <div
+                                                class="p-2 rounded-full group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                                                <span class="material-symbols-outlined text-[18px]">share</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        {% else %}
+                        <!-- Post 2 (Text Only) -->
+                        <article
+                            class="flex flex-col border-b border-[#dbe6df] dark:border-gray-800 hover:bg-gray-50/50 dark:hover:bg-white/[0.02] transition-colors cursor-pointer px-4 py-3">
+                            <div class="flex gap-3">
+                                <!-- Avatar -->
+                                <div class="shrink-0">
+                                    <div class="w-10 h-10 rounded-full bg-cover bg-center border border-gray-200"
+                                        data-alt="Avatar of Sarah Miller"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBVQ2MOzfZtxscgUAMeVCuE0-zeiWxHGHcTxtkH1EbmJYKOMzLZysR5Z3Rf_JZ2KmqHz4SYwpaRh5H59gMo44Zt86ot0Bcw0bLAyX6cMu3vF2IDjnXvhpYV6Dhyv_5CyJIOYS2t89A2LhC-v0RLkZpoW4d9njiquQDU7VPznptrzM1VdjC0TsZrYsLPPm_SkxLBREZ25o4Miw8VlQe73z6oJso-IPKE6B20y_n4w7Wwicf4DOajLRfVe7ONn53XR_r_Ioy09s2Buf0");'>
+                                    </div>
+                                </div>
+                                <!-- Content -->
+                                <div class="flex flex-col flex-1 gap-1">
+                                    <!-- Header -->
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-1.5 flex-wrap">
+                                            <span class="font-bold text-[#111813] dark:text-white hover:underline">{{post.user.first_name}}</span>
+                                            <span class="text-gray-500 text-sm">@{{post.user.name}} · 4h</span>
+                                        </div>
+                                        <button
+                                            class="text-gray-400 hover:text-primary hover:bg-primary/10 rounded-full p-1 transition-colors">
+                                            <span class="material-symbols-outlined text-[20px]">more_horiz</span>
+                                        </button>
+                                    </div>
+                                    <!-- Body Text -->
+                                    <p class="text-[#111813] dark:text-gray-200 text-[15px] leading-relaxed mb-2">
+                                        {{post.description}}<span
+                                            class="text-primary">#DesignThinking #UX</span>
+                                    </p>
+                                    <!-- Interaction Bar -->
+                                    <div class="flex items-center justify-between mt-1 text-gray-500 pr-4">
+                                        <div class="flex items-center gap-1 group">
+                                            <div
+                                                class="p-2 rounded-full group-hover:bg-blue-500/10 group-hover:text-blue-500 transition-colors">
+                                                <span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+                                            </div>
+                                            <span class="text-xs group-hover:text-blue-500 transition-colors">{{post.total_coments}}</span>
+                                        </div>
+                                        <div class="flex items-center gap-1 group">
+                                            <div
+                                                class="p-2 rounded-full group-hover:bg-green-500/10 group-hover:text-green-500 transition-colors">
+                                                <span class="material-symbols-outlined text-[18px]">repeat</span>
+                                            </div>
+                                            <span class="text-xs group-hover:text-green-500 transition-colors">45</span>
+                                        </div>
+                                        <div class="flex items-center gap-1 group">
+                                            <div
+                                                class="p-2 rounded-full group-hover:bg-pink-500/10 group-hover:text-pink-500 transition-colors">
+                                                <span
+                                                    class="material-symbols-outlined filled text-pink-500 text-[18px]">favorite</span>
+                                            </div>
+                                            <span class="text-xs text-pink-500 transition-colors">2.4k</span>
+                                        </div>
+                                        <div class="flex items-center gap-1 group">
+                                            <div
+                                                class="p-2 rounded-full group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                                                <span class="material-symbols-outlined text-[18px]">visibility</span>
+                                            </div>
+                                            <span class="text-xs group-hover:text-primary transition-colors">{{post.views_count}}</span>
+                                        </div>
+                                        <div class="flex items-center group">
+                                            <div
+                                                class="p-2 rounded-full group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                                                <span class="material-symbols-outlined text-[18px]">share</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <!-- Loading Spinner -->
+                    <div class="p-8 flex justify-center">
+                        <div class="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin">
+                        </div>
+                    </div>
+                </main>
+                <!-- RIGHT SIDEBAR -->
+                <aside
+                    class="hidden lg:flex flex-col w-[290px] xl:w-[350px] pl-4 xl:pl-8 py-4 gap-4 h-screen sticky top-0">
+                    <!-- Search -->
+                    <div class="sticky top-0 bg-background-light dark:bg-background-dark pb-2 z-10">
+                        <div class="relative group">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <span
+                                    class="material-symbols-outlined text-gray-400 group-focus-within:text-primary transition-colors">search</span>
+                            </div>
+                            <input
+                                class="block w-full pl-12 pr-4 py-3 bg-[#eef3f0] dark:bg-white/5 border-none rounded-full text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-black transition-all"
+                                placeholder="Search" type="text" />
+                        </div>
+                    </div>
+                    <!-- Trending Card -->
+                    <div class="bg-[#f0f4f2] dark:bg-white/5 rounded-2xl flex flex-col pt-3 pb-2 px-4">
+                        <h2 class="font-bold text-xl px-1 mb-3 text-[#111813] dark:text-white">Trends for you</h2>
+                        <div class="flex flex-col">
+                            <a class="py-3 px-1 hover:bg-gray-200/50 dark:hover:bg-white/5 -mx-4 px-5 transition-colors"
+                                href="#">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-xs text-gray-500">Technology · Trending</span>
+                                    <span
+                                        class="material-symbols-outlined text-[18px] text-gray-400 hover:text-primary">more_horiz</span>
+                                </div>
+                                <p class="font-bold text-[#111813] dark:text-white mt-0.5">#ArtificialIntelligence</p>
+                                <span class="text-xs text-gray-500">58.4K posts</span>
+                            </a>
+                            <a class="py-3 px-1 hover:bg-gray-200/50 dark:hover:bg-white/5 -mx-4 px-5 transition-colors"
+                                href="#">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-xs text-gray-500">Design · Trending</span>
+                                    <span
+                                        class="material-symbols-outlined text-[18px] text-gray-400 hover:text-primary">more_horiz</span>
+                                </div>
+                                <p class="font-bold text-[#111813] dark:text-white mt-0.5">Minimalism</p>
+                                <span class="text-xs text-gray-500">12.1K posts</span>
+                            </a>
+                            <a class="py-3 px-1 hover:bg-gray-200/50 dark:hover:bg-white/5 -mx-4 px-5 transition-colors"
+                                href="#">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-xs text-gray-500">Sports · Trending</span>
+                                    <span
+                                        class="material-symbols-outlined text-[18px] text-gray-400 hover:text-primary">more_horiz</span>
+                                </div>
+                                <p class="font-bold text-[#111813] dark:text-white mt-0.5">The Finals</p>
+                                <span class="text-xs text-gray-500">125K posts</span>
+                            </a>
+                            <a class="text-primary text-sm py-3 hover:underline" href="#">Show more</a>
+                        </div>
+                    </div>
+                    <!-- Who to follow -->
+                    <div class="bg-[#f0f4f2] dark:bg-white/5 rounded-2xl flex flex-col pt-3 pb-2 px-4">
+                        <h2 class="font-bold text-xl px-1 mb-3 text-[#111813] dark:text-white">Who to follow</h2>
+                        <div class="flex flex-col gap-4 mb-2">
+                            <!-- User 1 -->
+                            <div class="flex items-center justify-between gap-2">
+                                <div class="w-10 h-10 rounded-full bg-cover bg-center shrink-0 border border-gray-200"
+                                    data-alt="Avatar of Tech Daily"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAolQ3jcADiE1LzVx6oQSqRIsXvhQ9E8QUq2036D-oPRkFp6KdpJroapKTSpr8z44Ur63xYoNOPsSx6Hf1naZ-ovN_lLuzNAp0wkLJbT7zsyNL9OXFSdACtT2UNhQOk_UcX8G6cZNYuBq3kyrrXQ5qy4BdFIbr34_DN45po9kLvbUofoEzhmYpddN1O8VJlmPIqJ8fvC9ykLt6brhKElK7qJTlOcH732E4tMrqQn1ZfmNqQM9PqrNX73TZiWB885jaBRi2jUEJXBOA");'>
+                                </div>
+                                <div class="flex flex-col flex-1 min-w-0">
+                                    <p
+                                        class="font-bold text-sm truncate hover:underline cursor-pointer text-[#111813] dark:text-white">
+                                        Tech Daily</p>
+                                    <p class="text-gray-500 text-sm truncate">@techdaily</p>
+                                </div>
+                                <button
+                                    class="bg-[#111813] dark:bg-white text-white dark:text-[#111813] text-sm font-bold px-4 py-1.5 rounded-full hover:opacity-90 transition-opacity">Follow</button>
+                            </div>
+                            <!-- User 2 -->
+                            <div class="flex items-center justify-between gap-2">
+                                <div class="w-10 h-10 rounded-full bg-cover bg-center shrink-0 border border-gray-200"
+                                    data-alt="Avatar of Creative Hub"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuByHw3_iUe9xwy_Wsi0Xfegz_GfCBl6fEgupv2eKyTakBKxhmMCBF9ydYmpr3014GDhTJDax9EqsxaWEQ5UiSH7hJKF6dR3e-mKgA05dS9EbMcQ9dqwulDV6BWgAluG9rUk4mv3w8mrzh3cIemAG2Ujmb6WqwvP0CegSaq_RJic5r6JqSNephfqeBvovKDCkLsjFmdpdv1rdF32bdo6H7q1kwLDHBjz5_nKD90qMiRE4eJxxSoJld-FJwFUUg1129-TILIZvXftJCg");'>
+                                </div>
+                                <div class="flex flex-col flex-1 min-w-0">
+                                    <p
+                                        class="font-bold text-sm truncate hover:underline cursor-pointer text-[#111813] dark:text-white">
+                                        Creative Hub</p>
+                                    <p class="text-gray-500 text-sm truncate">@creativehub</p>
+                                </div>
+                                <button
+                                    class="bg-[#111813] dark:bg-white text-white dark:text-[#111813] text-sm font-bold px-4 py-1.5 rounded-full hover:opacity-90 transition-opacity">Follow</button>
+                            </div>
+                            <!-- User 3 -->
+                            <div class="flex items-center justify-between gap-2">
+                                <div class="w-10 h-10 rounded-full bg-cover bg-center shrink-0 border border-gray-200"
+                                    data-alt="Avatar of Dev Community"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBP-r2AcIF1lE1otud2fsBO3cBfE2hOh0pxRJlI9K91KztqbZv7VtQoRWwCeN4dLeTlQeIANMuRHmk-FlpcmXXKONSUEDwKIPdfe971xYFDozCvfSN7lhBi-dLbbxpBG6pC6Df44veAYkI0c4fg6sSOvLvwVQVfJ_vfQ3eCis_zthIY9LwdpAZPi2c9cmlJxdm9XIhlND2bieGXKSgzSntVpPPf8ypqdq18RdhZFGQwd0JIwHXcbdAbvpLsbqmBXpp_Uhr_AMx5R4Q");'>
+                                </div>
+                                <div class="flex flex-col flex-1 min-w-0">
+                                    <p
+                                        class="font-bold text-sm truncate hover:underline cursor-pointer text-[#111813] dark:text-white">
+                                        Dev Comm</p>
+                                    <p class="text-gray-500 text-sm truncate">@devcomm</p>
+                                </div>
+                                <button
+                                    class="bg-[#111813] dark:bg-white text-white dark:text-[#111813] text-sm font-bold px-4 py-1.5 rounded-full hover:opacity-90 transition-opacity">Follow</button>
+                            </div>
+                            <a class="text-primary text-sm py-1 hover:underline" href="#">Show more</a>
+                        </div>
+                    </div>
+                    <!-- Footer Links -->
+                    <div class="px-4 flex flex-wrap gap-x-3 gap-y-1 text-xs text-gray-500">
+                        <a class="hover:underline" href="#">Terms of Service</a>
+                        <a class="hover:underline" href="#">Privacy Policy</a>
+                        <a class="hover:underline" href="#">Cookie Policy</a>
+                        <a class="hover:underline" href="#">Accessibility</a>
+                        <a class="hover:underline" href="#">Ads info</a>
+                        <span>© 2024 SocialApp, Inc.</span>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <!-- Mobile Bottom Navigation -->
+        <div
+            class="md:hidden fixed bottom-0 w-full bg-background-light dark:bg-background-dark border-t border-[#dbe6df] dark:border-gray-800 flex justify-around items-center h-16 z-50">
+            <a class="p-2 text-[#111813] dark:text-white" href="#"><span
+                    class="material-symbols-outlined filled text-[28px]">home</span></a>
+            <a class="p-2 text-gray-500" href="#"><span class="material-symbols-outlined text-[28px]">search</span></a>
+            <a class="p-2 text-gray-500" href="#"><span
+                    class="material-symbols-outlined text-[28px]">notifications</span></a>
+            <a class="p-2 text-gray-500" href="#"><span class="material-symbols-outlined text-[28px]">mail</span></a>
+        </div>
+        <!-- Mobile FAB -->
+        <button
+            class="md:hidden fixed bottom-20 right-4 w-14 h-14 bg-primary rounded-full shadow-lg flex items-center justify-center text-[#111813] z-50">
+            <span class="material-symbols-outlined text-[28px]">add</span>
+        </button>
+    </body>
+
+    </html>
+</body>
+
+</html>
